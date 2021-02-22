@@ -2,7 +2,7 @@
   <div class="title">
     <h1>Pokedex</h1>
   </div>
-  <div class="grid">
+  <div class="container">
     <Pokedex/>
   </div>
   
@@ -26,6 +26,7 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 body{
  background-color: #d45454;
@@ -33,7 +34,6 @@ body{
 
 
 #app {
-  width: 100%;
   font-family: 'Josefin Sans';
   color: #212121
 }
@@ -43,18 +43,5 @@ body{
   text-align: center;
 }
 
-.grid{
-
-  @media(min-width: 1024px) {
-    display: grid;
-    grid-template-columns: repeat(6, 250px);
-    justify-content: center;
-    .input-search{
-      grid-area: 1/1/1/7;
-      margin-bottom:3rem;
-      
-    }
-  }
-}
 
 </style>

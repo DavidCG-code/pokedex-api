@@ -1,18 +1,28 @@
 <template>
 
-  <PokemonSearch
-  :API_URL = "API_URL"
-  @setPokemonUrl="setPokemonUrl" />
+<div class="row justify-content-center">
+    <PokemonSearch
+    :API_URL = "API_URL"
+    @setPokemonUrl="setPokemonUrl" />
+</div>
 
-  <PokemonList 
-  :imageUrl = "imageUrl" 
-  :API_URL = "API_URL"
-  @setPokemonUrl="setPokemonUrl"/>
+<div class="row justify-content-center gy-4 py-4">
+    <PokemonList 
+    :imageUrl = "imageUrl" 
+    :API_URL = "API_URL"
+    @setPokemonUrl="setPokemonUrl"
+    />
+</div>
 
-  <Pokemon
-  v-if="showDetail"
-  :pokemon = "pokemon"
-  @click = "close"/>
+<div class="row">
+    <Pokemon
+    v-if="showDetail"
+    :pokemon = "pokemon"
+    @click = "close"/>
+</div>
+
+
+
 
 </template>
 

@@ -1,24 +1,29 @@
 <template>
-    <div class="pokemons"
+    <div class="pokemons col-6 col-md-3"
     v-for="(poke,index) in pokemons" :key="'poke'+index.id"
     @click="setPokemonUrl(poke.url)" >
-      <div class="pokemons__number">
-        <figure class="pokemons__number--image">
-          <img src="../assets/pokebola.svg" width="18" height="18" alt="">
-        </figure>
-        <p class="pokemons__number--text">
-          {{poke.id}}
-        </p>
-      </div>
+
       <div class="pokemons__box">
-        <img :src="imageUrl + poke.id + '.png'" width="85" height="85" alt="">
-        <p>{{poke.name}}</p>
+        <div class="pokemons__box__number d-flex align-items-center p-2">
+          <figure class="pokemons__box__number--image">
+            <img src="../assets/pokebola.svg" width="18" height="18" alt="">
+          </figure>
+          <p class="pokemons__box__number--text">
+            {{poke.id}}
+          </p>
+        </div>
+        <div class="pokemons__box__image p-2">
+          <figure>
+            <img :src="imageUrl + poke.id + '.png'" width="85" height="85" alt="">
+          </figure>
+          <p>{{poke.name}}</p>
+        </div>
       </div>
     </div>
 
   <div class="arrows">
-    <button type="button" @click="previous" class="arrows__inverse"><img src="../assets/flecha-correcta.svg" alt="" width="40" height="40"></button>
-    <button type="button" @click="next" ><img src="../assets/flecha-correcta.svg" alt="" width="40" height="40"></button>
+    <button type="button" @click="previous" ><img src="../assets/flecha-correcta.svg" class="arrows__inverse" alt="" width="40" height="40">Prev</button>
+    <button type="button" @click="next" >Next<img src="../assets/flecha-correcta.svg" alt="" width="40" height="40"></button>
   </div>
 
 </template>
@@ -97,61 +102,66 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" >
  .pokemons{
-   width: 50%;
-   margin: 0 auto;
-   background-color: #f5f5f5;
-   margin-bottom: 1rem;
-   border-radius: 20px;
-   overflow: hidden;
-   box-shadow: 0px 3px 6px #74747486;
-   &__number{
-     padding: 0.75rem 1rem 0.5rem;
-     background-color: #74747486;
-     display: flex;
-     align-items: center;
-    &--image{
-      margin-right: 0.5rem;
-    }
-    &--text{
-      font-size: 1rem;
-    }
-     
+   &:nth-of-type(19),&:nth-of-type(20){
+     margin-bottom: 5rem;
    }
    &__box{
     text-align: center;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 3px 6px #74747486;
+    &__number{
      
-    img{
-      width: 100px;
-      height: 100px;
+     background-color: #74747486;
+      &--image{
+        margin-right: 0.5rem;
+        height: 18px;
+      }
+      &--text{
+        font-size: 1rem;
+      }
     }
-    p{
-      margin-bottom: 1rem;
-      text-transform: capitalize;
+
+    &__image{
+      figure{
+        width: 100%;
+
+        img{
+          width:100px;
+          height:100px;
+        }
+      }
+      p{
+        text-transform: capitalize;
+      }
     }
+
    }
  }
 
 
 
  .arrows{
-   
+   padding: 1rem;
    position: fixed;
-   bottom: 50px;
+   bottom: 0;
    width: 100%;
    display: flex;
    justify-content: space-between;
-   
+   background-color: #74747486;
    
 
    &__inverse{
      transform: rotate(180deg);
-     margin-left: 1rem;
    }
 
    button{
      margin-right: 1rem;
      background: none;
      border: none;
+     display: flex;
+     align-items: center;
     cursor: pointer;
     &:focus,&:active{
       outline: none;

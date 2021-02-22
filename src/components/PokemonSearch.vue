@@ -1,8 +1,10 @@
 <template>
-  <div class="input-search">
+  <div class="col-12 ">
     <form @submit.prevent="setPokemonUrl">
-      <input type="text" v-model="search" placeholder="Search a Pokemon..." >
-     
+      <input type="text" v-model="search" class="input-search" placeholder="Search a Pokemon..." >
+      <figure class="button-search">
+        <img src="../assets/loupe.svg" width="20" height="20" alt="">
+      </figure>
     </form>
      
   </div>
@@ -37,17 +39,25 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+form{
+ position:relative;
   .input-search{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.2rem;
- 
-
-    button{
-      padding: 0 8px;
-      border: none;
-      margin-left: 1rem;
+    border: none;
+    padding: 8px 0;
+    width: 100%;
+    border-bottom: 2px solid black;
+    background: none;
+    font-size: 1.2rem;
+    &:focus, &:active{
+      outline: none;
     }
   }
+  .button-search{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+}
+
 </style>
